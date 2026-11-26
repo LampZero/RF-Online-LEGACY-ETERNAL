@@ -1,0 +1,236 @@
+<!-- COMENTARIO_ZECA | UI do launcher RF Online Eternal Legacy. Baseada no mockup do PDF treino.pdf.
+     Toda em portugues do Brasil. Nao exibir dado inventado: status/noticias/eventos vem de API real. -->
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RF ONLINE ETERNAL — Launcher</title>
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="launcher" class="launcher">
+
+  <!-- Barra de titulo customizada -->
+  <header class="titlebar">
+    <div class="brand">
+      <span class="brand-rf">RF</span><span class="brand-main">ONLINE</span>
+      <span class="brand-remastered">REMASTERED</span>
+      <span class="brand-sep">•</span><span class="brand-el">ETERNAL LEGACY</span>
+      <span class="brand-tag">LAUNCHER OFICIAL</span>
+    </div>
+    <div class="wincontrols">
+      <button class="winbtn" id="winMin" title="Minimizar">—</button>
+      <button class="winbtn winbtn--close" id="winClose" title="Fechar">×</button>
+    </div>
+  </header>
+
+  <!-- Navegacao superior -->
+  <nav class="topnav">
+    <button class="navlink is-active" data-view="home">Início</button>
+    <button class="navlink" data-view="news">Notícias</button>
+    <button class="navlink" data-view="events">Eventos</button>
+    <button class="navlink" data-view="ranking">Classificação</button>
+    <button class="navlink" data-view="settings">Configurações</button>
+  </nav>
+
+  <!-- Conteudo principal: 3 colunas -->
+  <main class="main-grid" id="view-home">
+    <aside class="side">
+      <h2 class="side-title">RECURSOS</h2>
+      <button class="side-item" data-go="check" data-tip="Verifica integridade dos arquivos com o manifesto.">
+        <span class="side-ico">▣</span><span><b>Verificação completa</b><small>Verifica e corrige seu cliente automaticamente.</small></span>
+      </button>
+      <button class="side-item" data-go="update" data-tip="Baixa apenas arquivos ausentes ou divergentes.">
+        <span class="side-ico">⇩</span><span><b>Atualização automática</b><small>Baixa apenas o necessário, com segurança e alta performance.</small></span>
+      </button>
+      <button class="side-item" data-go="repair" data-tip="Repara arquivos alterados usando o manifesto.">
+        <span class="side-ico">⚒</span><span><b>Reparar cliente</b><small>Corrija arquivos danificados sem reinstalar tudo.</small></span>
+      </button>
+      <button class="side-item" data-go="language" data-tip="Aplica o pacote de idioma PT-BR validado por SHA256.">
+        <span class="side-ico">◈</span><span><b>Idioma português</b><small>Reaplica o pacote PT-BR sem mexer na sua conta.</small></span>
+      </button>
+      <button class="side-item" data-go="rollback" data-tip="Restaura o backup anterior somente se você mandar.">
+        <span class="side-ico">⏪</span><span><b>Versão anterior</b><small>Restaura o backup local sob ordem explícita.</small></span>
+      </button>
+      <button class="side-item" data-go="status" data-tip="Status lido de /api/status.">
+        <span class="side-ico">◎</span><span><b>Informações em tempo real</b><small>Eventos, notícias e status do servidor.</small></span>
+      </button>
+      <button class="side-item" data-go="folder" data-tip="Abre a pasta do cliente.">
+        <span class="side-ico">▤</span><span><b>Pasta do cliente</b><small>Acesse arquivos e logs rapidamente.</small></span>
+      </button>
+    </aside>
+
+    <section class="center">
+      <div class="hero">
+        <div class="hero-art"></div><div class="hero-veil"></div><div class="embers"></div>
+        <div class="hero-plaque">LEGACY ETERNAL</div>
+        <div class="hero-content">
+          <p class="hero-kicker">REMASTERED • O RETORNO DE UMA LENDA, MAIS FORTE!</p>
+          <h1 class="hero-title">UNIVERSO ESTÁ EM GUERRA,<br>FAÇA PARTE DESTA HISTÓRIA!</h1>
+          <div class="hero-actions">
+            <button class="btn btn--primary" id="btnMain">JOGAR</button>
+            <button class="btn btn--ghost" id="btnCheck">VERIFICAÇÃO COMPLETA</button>
+            <button class="btn btn--ghost" id="btnRepair">REPARAR CLIENTE</button>
+          </div>
+          <div class="progress" id="progress" hidden>
+            <div class="progress-bar" id="progressBar"></div>
+            <span class="progress-label" id="progressLabel">Verificando arquivos…</span>
+          </div>
+          <div class="hero-meta"><span id="heroJogadores">— jogadores</span><span>•</span><span id="heroMonstros">— monstros</span><span>•</span><span id="heroVersao">v—</span></div>
+        </div>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <header><h3>ÚLTIMAS NOTÍCIAS</h3><button class="more" data-ir="news">Ver todas »</button></header>
+          <div id="newsHome"><h4>Carregando…</h4></div>
+        </article>
+        <article class="card">
+          <header><h3>EVENTOS ATIVOS</h3><button class="more" data-ir="events">Ver todos »</button></header>
+          <div id="eventHome"><h4>Carregando…</h4></div>
+        </article>
+      </div>
+    </section>
+
+    <aside class="rail-right">
+      <section class="panel status">
+        <h3>STATUS DO SERVIDOR</h3>
+        <div class="status-row"><i class="dot" id="dot"></i><span id="statusText">Conectando…</span></div>
+        <dl>
+          <dt>Jogadores online</dt><dd id="players">—</dd>
+          <dt>Ping médio</dt><dd id="ping">—</dd>
+          <dt>Chip War</dt><dd id="chipwar">—</dd>
+          <dt>Monstros</dt><dd id="monsters">—</dd>
+        </dl>
+      </section>
+      <section class="panel version">
+        <h3>VERSÃO DO CLIENTE</h3>
+        <div><code id="version">—</code> <span class="badge" id="badgeVersion">Verificando</span></div>
+        <small id="fonteUpdate">Fonte: GitHub</small>
+      </section>
+      <section class="panel login">
+        <h3>ACESSO AO JOGO</h3>
+        <label>E-mail ou ID<input type="text" id="loginId" autocomplete="username"></label>
+        <label>Senha<span class="input-wrap"><input type="password" id="loginPass" autocomplete="current-password"><button class="eye" id="eye" type="button" title="Mostrar senha">◉</button></span></label>
+        <div class="login-meta">
+          <label class="check"><input type="checkbox" id="saveId"> Salvar ID</label>
+          <button class="linkbtn" id="forgot">Esqueci minha senha?</button>
+        </div>
+        <button class="btn btn--primary btn--block" id="btnLogin">ENTRAR</button>
+        <small id="loginMsg" class="login-msg"></small>
+      </section>
+    </aside>
+  </main>
+
+  <!-- Abas secundarias -->
+  <section class="view" id="view-news" hidden>
+    <div class="view-head"><h2>NOTÍCIAS E COMUNICADOS</h2><p>Fonte: API oficial do servidor.</p></div>
+    <div class="news-grid" id="newsAll"></div>
+  </section>
+  <section class="view" id="view-events" hidden>
+    <div class="view-head"><h2>EVENTOS E GUERRAS</h2><p>Horários obtidos do servidor — nunca fixos no launcher.</p></div>
+    <div class="promo-grid" id="agendaAll"></div>
+  </section>
+  <section class="view" id="view-ranking" hidden>
+    <div class="view-head"><h2>CLASSIFICAÇÃO</h2><p>Somente se houver fonte oficial confirmada.</p></div>
+    <div class="item"><b>Sem fonte de ranking configurada</b><small>Quando o servidor expuser uma API de classificação, este painel será conectado. Nenhum dado é simulado.</small></div>
+  </section>
+
+  <!-- Faixa de destaque -->
+  <section class="promo-grid" id="promoGrid">
+    <article class="promo"><h3>EVENTOS IMPERDÍVEIS</h3><p>Participe de eventos únicos e ganhe recompensas exclusivas!</p>
+      <ul><li>Batalha de Guilds — 3x ao dia</li><li>Chip War — grandes confrontos</li><li>Missões especiais</li><li>Prêmios incríveis</li></ul></article>
+    <article class="promo promo--chip"><h3>CHIP WAR — 3 VEZES AO DIA</h3>
+      <p>A guerra pelo Chip é o maior confronto do universo! Os horários vêm diretamente do servidor.</p>
+      <h4>PRÓXIMAS CHIP WARS</h4><div class="chips" id="chips"><span class="muted">Carregando…</span></div></article>
+    <article class="promo"><h3>GUERRA DE GUILD</h3><p>Una sua guild, conquiste territórios e mostre a força do seu clã!</p>
+      <ul><li>Domine o campo de batalha</li><li>Conquiste territórios</li><li>Receba recompensas</li></ul></article>
+  </section>
+
+  <!-- Rodape -->
+  <footer class="footer">
+    <div class="foot-col"><b>CLASSIFICAÇÃO</b><span>Acompanhe os melhores jogadores e guilds.</span></div>
+    <div class="foot-col"><b>NOTÍCIAS</b><span>Fique por dentro de todas as novidades.</span></div>
+    <div class="foot-col"><b>CONFIGURAÇÕES</b><span>Personalize sua experiência de jogo.</span></div>
+    <div class="foot-col"><b>SUPORTE</b><span>Conte com nossa equipe de suporte.</span></div>
+    <div class="foot-logo">RF • ETERNAL LEGACY</div>
+    <div class="foot-status">© <span id="conn">Conectado aos servidores</span> · Launcher <span id="ver">v1.0.0</span> · <span id="state">Pronto para jogar!</span></div>
+  </footer>
+
+  <!-- Tela de configuracoes (sobreposta) -->
+  <section class="settings-screen" id="view-settings" hidden>
+    <header class="settings-head">
+      <h1>CONFIGURAÇÕES DO JOGO</h1>
+      <p>Ajuste o cliente antes de entrar no campo de batalha.</p>
+    </header>
+    <div class="settings-body">
+      <nav class="settings-nav">
+        <button class="is-active" data-panel="screen">TELA</button>
+        <button data-panel="audio">ÁUDIO</button>
+        <button data-panel="game">JOGO</button>
+        <button data-panel="advanced">AVANÇADO</button>
+      </nav>
+      <div class="settings-panels">
+        <section class="set-panel" id="panel-screen">
+          <h2>MODO DE EXIBIÇÃO</h2>
+          <div class="row"><label>Modo de tela</label><div class="segmented" id="screenMode">
+            <button data-mode="window" class="is-active">JANELA</button>
+            <button data-mode="full">TELA CHEIA</button>
+            <button disabled title="Opção não suportada pelo cliente">TELA CHEIA EM JANELA</button>
+          </div></div>
+          <div class="row"><label for="res">Resolução</label><select id="res"></select></div>
+          <div class="row"><label>VSync</label><span class="na">Não disponível neste cliente</span></div>
+          <div class="row"><label>Idioma do cliente</label><span id="langAtual">Brazil (PT-BR)</span></div>
+        </section>
+        <section class="set-panel" id="panel-audio" hidden>
+          <h2>ÁUDIO</h2>
+          <div class="row slider-row"><label>Volume geral</label><input type="range" id="volSound" min="0" max="100"><output id="outSound"></output></div>
+          <div class="row slider-row"><label>Música</label><input type="range" id="volMusic" min="0" max="100"><output id="outMusic"></output></div>
+          <div class="row slider-row"><label>Ambiente</label><input type="range" id="volAmb" min="0" max="100"><output id="outAmb"></output></div>
+          <div class="row"><label>Som ativo</label><button class="toggle" id="tgSound"><span></span> ATIVO</button></div>
+          <div class="row"><label>Música ativa</label><button class="toggle" id="tgMusic"><span></span> ATIVO</button></div>
+          <button class="btn btn--ghost" id="btnMute">SILENCIAR TUDO</button>
+        </section>
+        <section class="set-panel" id="panel-game" hidden>
+          <h2>JOGO</h2>
+          <div class="row"><label>Qualidade de textura</label><select id="texture"><option>1</option><option>2</option><option>3</option></select></div>
+          <div class="row"><label>Sombras</label><select id="shadow"><option>1</option><option>2</option><option>3</option></select></div>
+          <div class="row"><label>Luz dinâmica</label><select id="light"><option>1</option><option>2</option><option>3</option></select></div>
+          <div class="row slider-row"><label>Distância de visão</label><input type="range" id="see" min="1" max="5"><output id="outSee"></output></div>
+          <div class="row slider-row"><label>Gama</label><input type="range" id="gamma" min="10" max="30"><output id="outGamma"></output></div>
+        </section>
+        <section class="set-panel" id="panel-advanced" hidden>
+          <h2>AVANÇADO / DIAGNÓSTICO</h2>
+          <div class="row"><label>Update</label><button class="btn btn--ghost btn--small" id="btnCheck2">Verificação completa</button></div>
+          <div class="row"><label>Reparo PT-BR</label><button class="btn btn--ghost btn--small" id="btnLang">Reparar idioma</button></div>
+          <div class="row"><label>Versão anterior</label><button class="btn btn--ghost btn--small" id="btnRollback">Restaurar backup</button></div>
+          <div class="row"><label>Credencial</label><button class="btn btn--ghost btn--small" id="btnCredential">Salvar ID / senha local</button></div>
+          <pre id="diag"></pre><pre id="backups"></pre>
+          <div class="row"><label>Teste do cliente</label><button class="btn btn--ghost btn--small" id="btnStatusGame">rflauncher -status</button></div>
+          <pre id="statusGame"></pre>
+        </section>
+      </div>
+    </div>
+    <footer class="settings-foot">
+      <button class="btn btn--primary" id="btnSaveSettings">SALVAR ALTERAÇÕES</button>
+      <button class="btn btn--ghost" id="btnResetSettings">RESTAURAR PADRÃO</button>
+      <p>As opções disponíveis dependem do suporte real do cliente.</p>
+    </footer>
+  </section>
+
+  <!-- Modal de credencial -->
+  <div class="modal" id="modalCred" hidden>
+    <div class="modal-box">
+      <h3>CREDENCIAL LOCAL</h3>
+      <label>E-mail ou ID<input type="text" id="credId"></label>
+      <label>Senha<input type="password" id="credPass" placeholder="Deixe vazio para manter a atual"></label>
+      <div class="row"><button class="btn btn--primary" id="btnSaveCred">SALVAR LOCALMENTE</button><button class="btn btn--ghost" id="btnCloseCred">CANCELAR</button></div>
+      <small>A senha nunca é exibida nem enviada ao GitHub. O arquivo real fica só nesta máquina.</small>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
