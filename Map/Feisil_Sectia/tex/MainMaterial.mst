@@ -1,0 +1,32 @@
+*MATERIAL_NUM 29
+{
+column_bottom_1_0		0
+      utensil%_1		1
+    wall_copy1_2		2
+column_bottom_2_3		3
+   stone_wall2_4		4
+          wall_5		5
+        wall_1_6		6
+    wall_copy1_7		7
+   wall_column_8		8
+          band_9		9
+column_bottom%_10		10
+   wall_copy1_11		11
+   stone_wall_12		12
+column_bottom_1_13		13
+stone_wall_copy_14		14
+  stone_wall1_15		15
+  stone_wall2_16		16
+         wall_17		17
+       wall_1_18		18
+  wall_column_19		19
+ wall_column1_20		20
+         band_21		21
+      ceiling_22		22
+   wall_copy1_23		23
+      lantern_24		24
+             _25		25
+         wall_26		26
+      lantern_27		27
+  stone_wall2_28		28
+}
