@@ -13,6 +13,7 @@ if exist "dist" rmdir /s /q "dist"
 
 "C:\Python314\python.exe" -m PyInstaller --noconfirm --clean --onedir --windowed ^
   --name "RF Launcher Eternal" ^
+  --icon "assets\rf_icon.ico" ^
   --add-data "web;web" ^
   --add-data "assets;assets" ^
   --hidden-import webview.platforms.edgechromium ^
