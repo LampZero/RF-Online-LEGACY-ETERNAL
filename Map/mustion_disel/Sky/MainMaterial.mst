@@ -1,0 +1,13 @@
+*MATERIAL_NUM 10
+{
+     sky_an_bc_0		0
+    sky_an_bc2_6		6
+    sky_an_bc1_1		1
+    sky_an_sun_2		2
+     sky_an_st_3		3
+    sky_an_st1_4		4
+    sky_an_st2_5		5
+sky_an_cloud_b_7		7
+sky_an_cloud_ba_8		8
+     sky_an_fc_9		9
+}

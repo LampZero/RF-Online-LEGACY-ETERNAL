@@ -1,0 +1,86 @@
+*MATERIAL_NUM 79
+{
+   DE_e_flat07_0		0
+     DE_load03_1		1
+   DE_load03_1_2		2
+DE_ca_flat01_1_3		3
+     DE_ston03_4		4
+   DE_wall_d05_5		5
+   DE_e_door01_6		6
+   DE_wall_d06_7		7
+  DE_e_light01_8		8
+     DE_flat01_9		9
+    DE_ston01_10		10
+    DE_ston02_11		11
+    DE_ston03_12		12
+  DE_ston02_1_13		13
+  DE_wall_d01_14		14
+DE_ca_flat01_1_15		15
+  DE_e_flat08_16		16
+DE_pillar_dc02_17		17
+DE_pillar_dc01_18		18
+  DE_b_flat01_19		19
+  DE_wall_d03_20		20
+    DE_ston01_21		21
+      door_01_22		22
+   DE_roof_02_23		23
+    door_01_1_24		24
+DE_wall_d03_1_25		25
+  DE_ston02_1_26		26
+ DE_curtain01_27		27
+   DE_light01_28		28
+    DE_e_de01_29		29
+     DE_e_p02_30		30
+     DE_e_p03_31		31
+     DE_e_p01_32		32
+    DE_load04_33		33
+DE_e_flat07_1_34		34
+  DE_b_flat01_35		35
+    DE_ston02_36		36
+  DE_ston02_1_37		37
+ DE_ca_flat03_38		38
+  DE_wall_d02_39		39
+   DE_water_1_40		40
+  DE_e_flat05_41		41
+  DE_e_flat01_42		42
+  DE_e_flat02_43		43
+  DE_e_flat03_44		44
+DE_e_flat0103_45		45
+DE_e_flat0203_46		46
+DE_e_flat0403_47		47
+DE_e_flat0204_48		48
+DE_e_flat02_1_49		49
+    DE_flat02_50		50
+ DE_ca_flat02_51		51
+    DE_flat01_52		52
+  DE_spring01_53		53
+  DE_e_ston01_54		54
+  DE_e_flat05_55		55
+  DE_grass_06_56		56
+ DE_ca_flat01_57		57
+ DE_ca_flat04_58		58
+ DE_ca_flat05_59		59
+ DE_ca_flat06_60		60
+  DE_s_flat01_61		61
+  DE_spring01_62		62
+ DE_ca_flat01_63		63
+ DE_ca_flat02_64		64
+ DE_ca_flat04_65		65
+   DE_roof_01_66		66
+    DE_carpet_67		67
+  DE_pillar01_68		68
+      DE_wing_69		69
+       DE_elf_70		70
+DE_ca_flat01_2_71		71
+        DE_op_72		72
+  DE_e_line01_73		73
+     DE_ef_01_74		74
+  DE_bridge01_75		75
+ DE_e_light01_76		76
+  DE_e_flat05_77		77
+  DE_e_flat01_78		78
+}
+*FOG_START       100000.0
+*FOG_END           800000.0
+*FOG_COLOR      3  47 66
+*FOG_RANGE       TRUE
