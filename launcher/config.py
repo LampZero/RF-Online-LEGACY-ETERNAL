@@ -4,6 +4,9 @@
 import os
 from pathlib import Path
 
+LAUNCHER_VERSION = "1.1.0"
+LAUNCHER_ASSET = "RF Launcher Eternal.exe"  # nome do asset no GitHub Release
+
 LAUNCHER_DIR = Path(__file__).resolve().parent
 ROOT = LAUNCHER_DIR.parent
 WEB_DIR = LAUNCHER_DIR / "web"
@@ -48,6 +51,12 @@ REPAIR_ASSET = "reparo_idioma_ptbr.zip"
 REPAIR_SHA256 = "0f1a13e18bcb64674b8c033a854b63917f7213d21fa2b75e69aa8b0c529ed07c"
 
 SKIP_DIRS = {"launcher", ".git", ".cache", "__pycache__", "NetLog", "ScreenShots"}
+
+# Arquivos/pastas que NUNCA devem ser removidos pelo launcher.
+PROTEGIDOS_USUARIO = {
+    "launcher.ini", "r3engine.ini", ".github_token", "manifest.txt",
+    "netlog", "screenshots", "launcher/.github_token", "launcher/.cache",
+}
 
 
 def github_token():

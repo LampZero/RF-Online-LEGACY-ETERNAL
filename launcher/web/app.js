@@ -57,36 +57,51 @@ function setMainState(txt,cls){var b=$('btnMain');b.textContent=txt;b.className=
 
 function verificarUpdate(silent){
   window.api.checkUpdate().then(function(r){
-    if(!r||!r.ok){if(!silent)toast('Não foi possível verificar: '+((r&&r.erro)||'erro desconhecido'));$('badgeVersion').textContent='Sem confirmação';$('badgeVersion').className='badge';return}
+    if(!r||!r.ok){if(!silent)toast('N\u00e3o foi poss\u00edvel verificar: '+((r&&r.erro)||'erro desconhecido'));$('badgeVersion').textContent='Sem confirma\u00e7\u00e3o';$('badgeVersion').className='badge';return}
     $('fonteUpdate').textContent='Fonte: '+(r.fonte==='github'?'GitHub':'Servidor 8081');
     var n=(r.desatualizados||[]).length;
-    if(n>0){setMainState('ATUALIZAR');$('badgeVersion').textContent='Atualização disponível';$('badgeVersion').className='badge warn';if(!silent)toast(n+' arquivo(s) para atualizar')}
+    if(n>0){setMainState('ATUALIZAR');$('badgeVersion').textContent='Atualiza\u00e7\u00e3o dispon\u00edvel';$('badgeVersion').className='badge warn';if(!silent)toast(n+' arquivo(s) para atualizar')}
     else{setMainState('JOGAR');$('badgeVersion').textContent='Atualizado';$('badgeVersion').className='badge ok';if(!silent)toast('Cliente atualizado')}
     if(r.release&&r.release.tag)$('ver').textContent='v'+r.release.tag;
   }).catch(function(e){if(!silent)toast('Erro: '+e)});
 }
 
 function applyUpdate(){
-  var b=$('btnMain');progress(true,'Baixando atualização…',10);busy(b,true,'ATUALIZANDO');
+  var b=$('btnMain');progress(true,'Baixando atualiza\u00e7\u00e3o\u2026',10);busy(b,true,'ATUALIZANDO');
   window.api.applyUpdate().then(function(r){
     progress(false);busy(b,false);
-    if(r.ok){toast(r.atualizados+' arquivo(s) atualizado(s). Backup: '+(r.rollback_id||'—'));setMainState('JOGAR')}
+    if(r.ok || r.atualizados>0){toast((r.atualizados||0)+' arquivo(s) atualizado(s). Backup: '+(r.rollback_id||'\u2014'));setMainState('JOGAR')}
     else toast('Falha: '+(r.erro||'erro'));
     window.api.listBackups().then(renderBackups);verificarUpdate(true);
   }).catch(function(e){progress(false);busy(b,false);toast('Erro: '+e)});
 }
 
 function fullCheck(){
-  var b=$('btnCheck');busy(b,true,'VERIFICANDO');progress(true,'Verificando integridade…',15);
-  window.api.checkUpdate().then(function(r){
+  var b=$('btnCheck');busy(b,true,'VERIFICANDO');progress(true,'Verificando integridade (full check)\u2026',15);
+  var fn = window.api.fullCheck || window.api.checkUpdate;
+  fn().then(function(r){
     progress(false);busy(b,false);
-    if(!r||!r.ok){toast('Não foi possível verificar: '+((r&&r.erro)||'erro'));return}
+    if(!r||!r.ok){toast('N\u00e3o foi poss\u00edvel verificar: '+((r&&r.erro)||'erro'));return}
     var n=(r.desatualizados||[]).length;
-    toast(n?('Verificação concluída: '+n+' arquivo(s) precisam de reparo.'):'Verificação concluída: cliente íntegro.');
+    var okc=r.ok_count!=null?r.ok_count:(r.total-n);
+    var msg='Full check: '+okc+'/'+r.total+' OK';
+    if(n>0) msg+=', '+n+' arquivo(s) para reparar/baixar.';
+    else msg+='. Cliente \u00edntegro.';
+    toast(msg);
+    $('diag').textContent=JSON.stringify({fullcheck:true,total:r.total,ok:okc,problemas:n,corrompidos:(r.corrompidos||[]).length,faltando:(r.faltando||[]).length},null,2);
     verificarUpdate(true);
   }).catch(function(e){progress(false);busy(b,false);toast('Erro: '+e)});
 }
 
+function installAll(){
+  var b=$('btnMain');progress(true,'Instalando cliente completo\u2026',5);busy(b,true,'INSTALANDO');
+  window.api.installAll().then(function(r){
+    progress(false);busy(b,false);
+    if(r.ok){toast((r.atualizados||0)+' arquivo(s) instalados. Cliente pronto.');setMainState('JOGAR')}
+    else toast('Falha na instala\u00e7\u00e3o: '+(r.erro||'erro'));
+    window.api.listBackups().then(renderBackups);verificarUpdate(true);
+  }).catch(function(e){progress(false);busy(b,false);toast('Erro: '+e)});
+}
 function repair(){var b=$('btnRepair');busy(b,true,'REPARANDO');progress(true,'Reparando cliente…',20);
   window.api.applyUpdate().then(function(r){progress(false);busy(b,false);toast(r.ok?('Reparo concluído: '+r.atualizados+' arquivo(s).'):('Falha: '+(r.erro||'erro')));verificarUpdate(true)}).catch(function(e){progress(false);busy(b,false);toast('Erro: '+e)})}
 
@@ -138,7 +153,15 @@ function acoes(){
   $('eye').addEventListener('click',function(){$('loginPass').type=($('loginPass').type==='password'?'text':'password')});
   $('winMin').addEventListener('click',function(){window.api.minimize()});
   $('winClose').addEventListener('click',function(){window.api.closeLauncher()});
-  $('btnMain').addEventListener('click',function(){var t=this.textContent.trim();if(t==='ATUALIZAR')applyUpdate();else window.api.startGame().then(function(r){toast(r.ok?r.mensagem:('Erro: '+r.erro))})});
+  $('btnMain').addEventListener('click',function(){
+    var t=this.textContent.trim();
+    if(t==='ATUALIZAR')return applyUpdate();
+    if(t==='INSTALAR' || t==='INSTALAR CLIENTE')return installAll();
+    window.api.startGame().then(function(r){
+      if(r && r.precisa_instalar){ toast('Cliente não encontrado. Clique em INSTALAR CLIENTE para baixar do GitHub.'); setMainState('INSTALAR CLIENTE'); return; }
+      toast(r.ok?r.mensagem:('Erro: '+r.erro));
+    });
+  });
   $('btnCheck').addEventListener('click',fullCheck);$('btnCheck2').addEventListener('click',fullCheck);
   $('btnRepair').addEventListener('click',repair);
   $('btnLang').addEventListener('click',repairLang);$('btnRollback').addEventListener('click',rollback);
@@ -148,7 +171,17 @@ function acoes(){
   $('btnCredential').addEventListener('click',function(){$('modalCred').hidden=false;window.api.getCredential().then(function(c){$('credId').value=c.email||'';$('credPass').value=''})});
   $('btnCloseCred').addEventListener('click',function(){$('modalCred').hidden=true});
   $('btnSaveCred').addEventListener('click',function(){window.api.saveCredential($('credId').value,$('credPass').value).then(function(r){toast(r.ok?r.mensagem:('Erro: '+r.erro));$('modalCred').hidden=true;$('credPass').value=''})});
-  $('btnLogin').addEventListener('click',function(){var b=this;busy(b,true,'ENTRANDO');window.api.saveCredential($('loginId').value,$('loginPass').value).then(function(r){busy(b,false);$('loginPass').value='';$('loginMsg').textContent=r.ok?'Credencial salva localmente. Clique em JOGAR.':(r.erro||'')})});
+  $('btnLogin').addEventListener('click',function(){
+    var b=this;busy(b,true,'ENTRANDO');
+    var salvar = $('saveId').checked;
+    window.api.saveCredential($('loginId').value,$('loginPass').value,salvar).then(function(r){
+      busy(b,false);
+      if(!salvar){$('loginId').value=''}
+      $('loginPass').value='';
+      $('loginMsg').textContent=r.ok?'Credencial salva localmente. Clique em JOGAR.':(r.erro||'');
+      if(r.ok){ window.api.startGame().then(function(g){ if(g && g.ok) toast('Jogo iniciado!'); else if(g && g.precisa_instalar){ setMainState('INSTALAR CLIENTE'); toast('Cliente faltando. Instale pelo launcher.'); } }); }
+    });
+  });
   $('forgot').addEventListener('click',function(){toast('Use o fluxo oficial de recuperação do site do servidor.')});
   document.querySelectorAll('.side-item').forEach(function(b){b.addEventListener('click',function(){
     var g=b.dataset.go;
@@ -156,6 +189,20 @@ function acoes(){
     else if(g==='language')repairLang();else if(g==='rollback')rollback();
     else if(g==='status')showView('home');else if(g==='folder')window.api.openFolder();
   })});
+}
+
+function checkLauncherSelfUpdate(){
+  if(!window.api.selfUpdateCheck) return;
+  window.api.selfUpdateCheck().then(function(r){
+    if(r && r.ok && r.tem_novo){
+      toast('Nova versão do launcher disponível (v'+r.remoto+'). Atualizando...');
+      window.api.selfUpdateApply().then(function(a){
+        if(a && a.ok && a.reiniciando) toast('Launcher será reiniciado para atualizar.');
+        else if(a && a.ok) toast('Atualização do launcher baixada: '+(a.path||'cache'));
+        else if(a && a.erro) toast('Auto-update launcher: '+a.erro);
+      });
+    }
+  }).catch(function(){});
 }
 
 function init(){
@@ -168,6 +215,7 @@ function init(){
   window.api.getCredential().then(function(c){$('loginId').value=c.email||'';$('saveId').checked=!!c.email});
   window.api.getClientSettings().then(fillSettings);
   window.api.listBackups().then(renderBackups);
+  checkLauncherSelfUpdate();
   verificarUpdate(true);
   setInterval(function(){window.api.getStatus().then(renderStatus)},15000);
 }

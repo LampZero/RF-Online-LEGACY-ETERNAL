@@ -20,14 +20,16 @@ class Api:
     """Metodos chamados pela UI via window.api.<metodo>()."""
 
     def get_config(self):
+        from config import LAUNCHER_VERSION
         return {
             "repo": GITHUB_SLUG,
             "branch": GITHUB_BRANCH,
             "site": SITE_URL,
-            "versao": "1.0.0",
+            "versao": LAUNCHER_VERSION,
             "github_autenticado": bool(github_token()),
             "token_local": TOKEN_FILE.exists(),
             "cliente": CLIENT_BINARY.name,
+            "root": str(ROOT),
         }
 
     def get_status(self):
@@ -48,6 +50,10 @@ class Api:
     def check_update(self):
         return updater.verificar()
 
+    def full_check(self):
+        """Full check: hash de todos os arquivos do manifest."""
+        return updater.fullcheck()
+
     def apply_update(self):
         v = updater.verificar()
         if not v.get("ok"):
@@ -58,6 +64,72 @@ class Api:
         r = updater.aplicar(itens)
         r["atualizados"] = r.get("ok", 0)
         return r
+
+    def install_all(self):
+        """Baixa/instala tudo que falta (instalacao completa a partir do launcher)."""
+        r = updater.instalar_tudo()
+        if r.get("ok"):
+            r["atualizados"] = r.get("ok", 0) if isinstance(r.get("ok"), int) else r.get("atualizados", 0)
+        return r
+
+    def self_update_check(self):
+        """Verifica se existe versao nova do launcher no GitHub Releases."""
+        from config import LAUNCHER_VERSION, LAUNCHER_ASSET
+        rel = gh_client.versao_release()
+        if not rel:
+            return {"ok": False, "erro": "Release indisponivel"}
+        tag = str(rel.get("tag") or "").lstrip("vV")
+        cur = str(LAUNCHER_VERSION).lstrip("vV")
+        def _ver_tuple(s):
+            try:
+                return tuple(int(x) for x in re.findall(r'\d+', s)[:4])
+            except Exception:
+                return (0,)
+        tem_novo = _ver_tuple(tag) > _ver_tuple(cur) if tag else False
+        url = gh_client.release_asset_url(LAUNCHER_ASSET)
+        return {
+            "ok": True, "atual": cur, "remoto": tag, "tem_novo": tem_novo,
+            "asset": LAUNCHER_ASSET, "asset_url": bool(url), "release": rel,
+        }
+
+    def self_update_apply(self):
+        """Baixa novo launcher do release e prepara substituicao no proximo boot."""
+        import sys, hashlib, tempfile
+        from config import LAUNCHER_VERSION, LAUNCHER_ASSET, CACHE_DIR
+        chk = self.self_update_check()
+        if not chk.get("ok"):
+            return chk
+        if not chk.get("tem_novo"):
+            return {"ok": True, "mensagem": "Launcher ja esta atualizado", "atualizado": False}
+        url = gh_client.release_asset_url(LAUNCHER_ASSET)
+        if not url:
+            return {"ok": False, "erro": "Asset do launcher nao encontrado no release"}
+        data = gh_client.download_url(url, timeout=120)
+        if not data:
+            return {"ok": False, "erro": "Download do launcher falhou"}
+        CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        novo = CACHE_DIR / LAUNCHER_ASSET
+        novo.write_bytes(data)
+        sha = hashlib.sha256(data).hexdigest()
+        # Se rodando como exe, cria script .bat para trocar no reinicio
+        if getattr(sys, "frozen", False):
+            exe = sys.executable
+            bat = CACHE_DIR / "apply_self_update.bat"
+            bat.write_text(
+                '@echo off\r\n'
+                'timeout /t 2 /nobreak >nul\r\n'
+                'copy /Y "{novo}" "{exe}" >nul\r\n'
+                'start "" "{exe}"\r\n'
+                'del "%~f0"\r\n'.format(novo=str(novo), exe=exe),
+                encoding="utf-8"
+            )
+            subprocess.Popen(["cmd", "/c", str(bat)], cwd=str(CACHE_DIR),
+                             creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+            return {"ok": True, "atualizado": True, "reiniciando": True,
+                    "mensagem": "Launcher atualizado. Reiniciando...", "sha256": sha}
+        return {"ok": True, "atualizado": True, "reiniciando": False,
+                "mensagem": "Novo launcher baixado em cache (modo dev, nao substituido automaticamente)",
+                "path": str(novo), "sha256": sha}
 
     def repair_language(self):
         return updater.reparar_idioma()
@@ -85,32 +157,44 @@ class Api:
         return {"email": email, "senha": "*" * min(len(senha), 12) if senha else "",
                 "salva": bool(senha)}
 
-    def save_credencial(self, email, senha):
-        """Salva localmente em launcher.ini (fora do git)."""
+    def save_credencial(self, email, senha, salvar_id=None):
+        """Salva localmente em launcher.ini (fora do git). salvar_id=False limpa e-mail."""
         try:
             texto = CLIENT_INI.read_text(encoding="utf-8", errors="replace")
         except Exception:
             texto = ""
+        email_val = str(email).strip() if (salvar_id is None or salvar_id) else ""
         linhas = []
         trocou_email = trocou_senha = False
         for ln in texto.splitlines():
             if re.match(r"\s*Email\s*=", ln, re.I):
-                linhas.append("Email        = " + str(email).strip())
+                linhas.append("Email        = " + email_val)
                 trocou_email = True
             elif re.match(r"\s*Password\s*=", ln, re.I):
                 # Senha vazia = manter a atual ( Salvar ID nao apaga a senha ).
                 if str(senha).strip():
                     linhas.append("Password     = " + str(senha))
-                trocou_senha = True
+                    trocou_senha = True
+                else:
+                    linhas.append(ln)
+                    trocou_senha = True
             else:
                 linhas.append(ln)
         if not trocou_email:
-            linhas.append("Email        = " + str(email).strip())
+            linhas.append("Email        = " + email_val)
         # NUNCA grava senha em branco: isso apagaria a credencial real do cliente.
         if str(senha).strip() and not trocou_senha:
             linhas.append("Password     = " + str(senha))
         CLIENT_INI.write_text("\n".join(linhas) + "\n", encoding="utf-8")
         return {"ok": True, "mensagem": "Credencial salva localmente (arquivo fora do git)"}
+
+    def get_progress(self):
+        return getattr(self, "_progress", {"active": False})
+
+    def _set_progress(self, active, done=0, total=0, label="", detail=""):
+        self._progress = {"active": active, "done": done, "total": total,
+                          "label": label, "detail": detail,
+                          "pct": int(done * 100 / total) if total else 0}
 
     def status_game(self):
         try:
@@ -124,7 +208,9 @@ class Api:
 
     def start_game(self):
         if not CLIENT_BINARY.exists():
-            return {"ok": False, "erro": "rflauncher.exe nao encontrado"}
+            # Oferece instalacao completa se o cliente nao existe
+            return {"ok": False, "erro": "rflauncher.exe nao encontrado",
+                    "precisa_instalar": True}
         try:
             subprocess.Popen([str(CLIENT_BINARY)], cwd=str(ROOT), shell=False)
             return {"ok": True, "mensagem": "Jogo iniciado"}
@@ -149,8 +235,8 @@ class Api:
     def get_credential(self):
         return self.get_credencial()
 
-    def save_credential(self, email, senha):
-        return self.save_credencial(email, senha)
+    def save_credential(self, email, senha, salvar_id=None):
+        return self.save_credencial(email, senha, salvar_id)
 
     def list_backups(self):
         return self.listar_backups()

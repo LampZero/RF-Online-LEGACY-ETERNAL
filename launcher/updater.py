@@ -72,8 +72,8 @@ def parse_manifest(texto):
     return itens
 
 
-def verificar():
-    """Compara manifest remoto (GitHub) com os arquivos locais. Le, nao muda nada."""
+def _obter_manifest():
+    """Busca manifest: GitHub raw -> release asset -> servidor 8081."""
     texto = gh_client.manifest()
     fonte = "github"
     if not texto or not texto.strip():
@@ -82,20 +82,27 @@ def verificar():
         if raw:
             texto = raw.decode("utf-8", errors="replace")
             fonte = "servidor-8081"
+    return texto, fonte
+
+
+def verificar():
+    """Compara manifest remoto com arquivos locais. Le, nao muda nada."""
+    texto, fonte = _obter_manifest()
     if not texto or not texto.strip():
         return {
             "ok": False, "erro": "Manifest remoto vazio/indisponivel",
-            "fonte": fonte, "total": 0, "desatualizados": [],
+            "fonte": fonte, "total": 0, "desatualizados": [], "ok_count": 0,
         }
 
     itens = parse_manifest(texto)
     if not itens:
         return {
             "ok": False, "erro": "Manifest sem entradas validas",
-            "fonte": fonte, "total": 0, "desatualizados": [],
+            "fonte": fonte, "total": 0, "desatualizados": [], "ok_count": 0,
         }
 
     dif = []
+    ok_count = 0
     for it in itens:
         p = ROOT / it["path"].replace("/", os.sep)
         if not p.exists():
@@ -104,13 +111,39 @@ def verificar():
         try:
             if p.stat().st_size != it["size"] or file_digest(p) != it["hash"]:
                 dif.append(dict(it, motivo="diferente"))
+            else:
+                ok_count += 1
         except Exception:
             dif.append(dict(it, motivo="ilegivel"))
     return {
         "ok": True, "fonte": fonte, "total": len(itens),
+        "ok_count": ok_count,
         "desatualizados": dif, "bytes": sum(x["size"] for x in dif),
         "release": gh_client.versao_release(),
     }
+
+
+def fullcheck(progress=None):
+    """Verificacao completa de integridade (hash de TODOS os arquivos do manifest)."""
+    _log("FULLCHECK_INICIO")
+    r = verificar()
+    if not r.get("ok"):
+        _log("FULLCHECK_FALHA", r.get("erro"))
+        return r
+    total = r.get("total", 0)
+    dif = r.get("desatualizados", [])
+    ok_count = r.get("ok_count", 0)
+    if progress:
+        try:
+            progress(total, total, "Verificacao concluida")
+        except Exception:
+            pass
+    r["fullcheck"] = True
+    r["corrompidos"] = [d for d in dif if d.get("motivo") == "diferente"]
+    r["faltando"] = [d for d in dif if d.get("motivo") == "faltando"]
+    r["ilegiveis"] = [d for d in dif if d.get("motivo") == "ilegivel"]
+    _log("FULLCHECK_FIM", "total", total, "ok", ok_count, "dif", len(dif))
+    return r
 
 
 def _baixar(rel):
@@ -155,6 +188,20 @@ def aplicar(itens, progress=None):
                 pass
     _log("APLICADO", ok, "falhas", len(falhas), "backup", rid)
     return {"ok": ok, "falhas": falhas, "rollback_id": rid}
+
+
+def instalar_tudo(progress=None):
+    """Instalacao completa: baixa tudo que falta/difere pelo manifest (para cliente novo)."""
+    r = verificar()
+    if not r.get("ok"):
+        return {"ok": False, "erro": r.get("erro", "verificacao falhou")}
+    itens = r.get("desatualizados", [])
+    if not itens:
+        return {"ok": True, "mensagem": "Cliente ja esta completo", "atualizados": 0}
+    res = aplicar(itens, progress=progress)
+    res["mensagem"] = "Instalados/atualizados %d arquivo(s)" % res.get("ok", 0)
+    res["total_manifest"] = r.get("total", 0)
+    return res
 
 
 def reparar_idioma():
