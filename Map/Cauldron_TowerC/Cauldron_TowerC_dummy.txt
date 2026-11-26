@@ -1,0 +1,15 @@
+<MobDummy>
+	<Parent><Name>cauldron_towerc001						<Pos>364 1576 -114
+					<MobCode>1A901	<Time>28800	<Respone>1	<probability>100
+			<Child><Name>dm001_0				<Pos>364 1556 -114
+</MobDummy>
+<UnKnown>
+	<Name>cauldron_towerc001						<Pos>364 1576 -114
+</UnKnown>
+<MAP이동 더미>
+	<Name>dpfrom_cauldron01_c						<Pos>-310 493 -432
+	<Name>dpgoto_neutralc						<Pos>349 1581 24
+</MAP이동 더미>
+<시작 더미>
+	<Name>ds1						<Pos>-320 495 -422
+</시작 더미>
