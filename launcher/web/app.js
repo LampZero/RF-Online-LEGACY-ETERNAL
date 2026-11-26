@@ -205,19 +205,38 @@ function checkLauncherSelfUpdate(){
   }).catch(function(){});
 }
 
+function resolveApi(){
+  if(window.api) return window.api;
+  if(window.pywebview && window.pywebview.api){ window.api = window.pywebview.api; return window.api; }
+  return null;
+}
+
 function init(){
-  if(!window.api){document.body.innerHTML='<p style="padding:30px">API do launcher indisponível.</p>';return}
+  var api = resolveApi();
+  if(!api){
+    // pywebview às vezes demora; tenta novamente por alguns segundos
+    var tries = 0;
+    var t = setInterval(function(){
+      tries++;
+      api = resolveApi();
+      if(api){ clearInterval(t); init(); }
+      else if(tries > 40){ clearInterval(t); document.body.innerHTML='<p style="padding:30px;color:#fff;font-family:sans-serif">API do launcher indisponível. Verifique se o launcher foi aberto pelo executável (pywebview).</p>'; }
+    }, 250);
+    return;
+  }
   acoes();
-  window.api.getConfig().then(function(c){cfg=c;$('ver').textContent='v'+c.versao;$('diag').textContent=JSON.stringify(c,null,2)});
-  window.api.getStatus().then(renderStatus);
-  window.api.getNews().then(renderNews);
-  window.api.getSchedule().then(renderEvents);
-  window.api.getCredential().then(function(c){$('loginId').value=c.email||'';$('saveId').checked=!!c.email});
-  window.api.getClientSettings().then(fillSettings);
-  window.api.listBackups().then(renderBackups);
+  window.api.getConfig().then(function(c){cfg=c;$('ver').textContent='v'+c.versao;$('diag').textContent=JSON.stringify(c,null,2)}).catch(function(e){toast('Config: '+e)});
+  window.api.getStatus().then(renderStatus).catch(function(){});
+  window.api.getNews().then(renderNews).catch(function(){});
+  window.api.getSchedule().then(renderEvents).catch(function(){});
+  window.api.getCredential().then(function(c){$('loginId').value=c.email||'';$('saveId').checked=!!c.email}).catch(function(){});
+  window.api.getClientSettings().then(fillSettings).catch(function(){});
+  window.api.listBackups().then(renderBackups).catch(function(){});
   checkLauncherSelfUpdate();
   verificarUpdate(true);
-  setInterval(function(){window.api.getStatus().then(renderStatus)},15000);
+  setInterval(function(){window.api.getStatus().then(renderStatus).catch(function(){})},15000);
 }
-window.addEventListener('pywebviewready',init);
+window.addEventListener('pywebviewready',function(){ resolveApi(); init(); });
+if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded',function(){ setTimeout(init, 50); });
+else setTimeout(init, 50);
 })();
