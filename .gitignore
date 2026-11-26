@@ -1,0 +1,35 @@
+.gitignore do cliente main - RF Online Legacy Eternal
+Segredos e gerados ficam FORA do GitHub. O launcher.example.ini e o modelo publico.
+
+# Credencial real do jogador/admin
+launcher.ini
+
+# Backups e logs
+*.bak
+*.bak_*
+*.backup
+*.backup_*
+_*/
+NetLog/*
+!NetLog/.gitkeep
+ScreenShots/*
+!ScreenShots/.gitkeep
+*.log
+*.dmp
+
+# Banco/estado local
+*.db
+*.db-wal
+*.db-shm
+
+# Launcher: segredo, cache e build
+launcher/.github_token
+launcher/.cache/
+launcher/build/
+launcher/dist/
+launcher/*.spec
+
+# Lixo de sistema
+__pycache__/
+.DS_Store
+Thumbs.db
