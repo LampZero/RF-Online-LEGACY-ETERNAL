@@ -1,0 +1,23 @@
+[Particle]
+entity_file  .\Chef\Summer_Event_2024\Co\shield_point_05\re.R3E
+num	5
+pos box 0 0 0
+
+live_time 1
+time_speed 5
+gravity	0 0 0
+	;start_color 255 120 10
+	start_color 255 150 50
+	start_scale rand(0.3,0.4)
+	start_alpha 60
+;z_front -0.01
+alpha_type 3
+free
+
+time 0.5
+	scale rand(0.2,0.3)
+	alpha 20
+
+time 1
+	scale 0
+	alpha 0

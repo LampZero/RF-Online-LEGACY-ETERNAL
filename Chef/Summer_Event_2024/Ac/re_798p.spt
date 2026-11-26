@@ -1,0 +1,44 @@
+;직진형태
+
+[Particle]
+
+entity_file .\Chef\Summer_Event_2024\Ac\re_798p\aura.R3E
+num 100
+;pos box 0 0 0
+pos box rand(-18,18) rand(-28,28) rand(-10,1)
+
+live_time 1.5
+time_speed 1
+gravity	0 0 -50
+	creat_time_epsilon 3
+	start_color 255 100 0
+	start_scale 7
+	start_alpha 0
+	start_power rand(-2,5) rand(-2,2) rand(-2,2)
+	start_zrot rand(-360,360)
+
+z_front	-0.1
+alpha_type 3
+
+
+time 0.5
+	color 255 150 0
+	zrot rand(-50,50)
+	alpha 100
+	scale 10
+	power rand(-2.5,2.5) rand(-2.5,2.5) rand(-2.5,2.5)
+
+time 1
+	color 187 85 0
+	scale 14
+	zrot rand(-50,50)
+	alpha 10
+	power rand(-0.2,0.2) rand(-0.2,0.2) rand(-0.2,0.2)
+
+time 1.5
+	color 200 0 0 
+	scale 1
+	zrot rand(-50,50)
+	alpha 0
+	power rand(-0.01,0.01) rand(-0.01,0.01) rand(-0.01,0.01)
+

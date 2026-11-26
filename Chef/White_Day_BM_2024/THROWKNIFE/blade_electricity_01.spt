@@ -1,0 +1,30 @@
+ [Particle]
+entity_file .\Chef\White_Day_BM_2024\THROWKNIFE\blade_electricity_01\aura.r3e
+num 20
+pos box rand(-4,0) 0 0
+
+live_time 0.5
+time_speed 1
+gravity 1 0 0
+
+	start_scale rand(0.04,0.07)
+              start_power rand(-0.5,0.5) rand(-0.5,0.5) rand(-0.5,0.5)
+	start_alpha 255
+	start_zrot rand(0, 360)
+	start_yrot rand(0, 360)
+
+
+alpha_type 3
+;z_front -0.1
+y_billboard
+
+
+
+;no_billboard
+;free     
+
+
+
+time 0.5
+              scale rand(0.015,0.03)
+	alpha 0 

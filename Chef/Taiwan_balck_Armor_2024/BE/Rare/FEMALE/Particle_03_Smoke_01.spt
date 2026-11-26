@@ -1,0 +1,43 @@
+;·¥´ýÀû¿ë
+[Particle]
+entity_file .\Chef\Taiwan_balck_Armor_2024\BE\Rare\FEMALE\Particle_03_Smoke\aura.R3E
+num 40
+
+pos box rand(-2.5,2.5) rand(-2.5,2.5) rand(-1,1)
+;pos box 0 rand(0,3.5) 0
+
+live_time 2.5
+time_speed 0.5
+gravity 0 -1.5 0
+	
+	start_scale 0.5
+	start_color 255 150 50
+	start_alpha 0
+	start_zrot rand(-360,360)
+	alpha_type 3
+
+
+
+;z_front -0.1
+
+
+
+time 0.5
+	alpha 50
+	zrot rand(-10,10)
+	color 250 150 0
+	scale 1.5
+
+
+time 1.7
+	alpha 30
+	zrot rand(-10,10)
+	scale 1
+	color 50 100 250
+
+
+time 2.5
+	color 250 200 50
+	zrot rand(-60,60)
+	scale 0.5
+	alpha 0
