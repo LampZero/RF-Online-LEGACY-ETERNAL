@@ -1,0 +1,104 @@
+
+
+
+;=================================================================================
+;드래곤부스터_2018년10월05일
+;=================================================================================
+;------------------------------------------------------------------
+;아크드래곤부스터_AC_CLOAK_attack
+;------------------------------------------------------------------
+9011201     .\Effect\item_8\Booster_CLOAK\AC\attack\src\bs.spt 	              ;세로불똥
+9011202     .\Effect\item_8\Booster_CLOAK\AC\attack\src\DUST_p.spt	      ;먼지
+9011203     .\Effect\item_8\Booster_CLOAK\AC\attack\src\spkl.spt              ;파티클
+9011204     .\Effect\item_8\Booster_CLOAK\AC\attack\src\1478p.spt
+9011205     .\Effect\item_8\Booster_CLOAK\AC\attack\src\land_smok_01.spt      ;바닥물효과_01
+
+
+;------------------------------------------------------------------
+;아크드래곤부스터_AC_CLOAK_use
+;------------------------------------------------------------------
+9011211     .\Effect\item_8\Booster_CLOAK\AC\use\src\52872\52872.r3e	            ;모이는빛
+9011212     .\Effect\item_8\Booster_CLOAK\AC\use\src\TBlow\TBlow.R3E
+9011213     .\Effect\item_8\Booster_CLOAK\AC\use\src\inquiry7.spt                   ;반짝
+9011214     .\Effect\item_8\Booster_CLOAK\AC\use\src\inquiry7_01\inquiry7_01.R3E
+
+
+;------------------------------------------------------------------
+;벨라토드래곤부스터_BE_CLOAK_attack
+;------------------------------------------------------------------
+9011221   .\Effect\item_8\Booster_CLOAK\BE\attack\src\bs.spt 	            ;세로불똥
+9011222   .\Effect\item_8\Booster_CLOAK\BE\attack\src\DUST_p.spt	    ;먼지
+9011223   .\Effect\item_8\Booster_CLOAK\BE\attack\src\spkl.spt              ;파티클
+9011224   .\Effect\item_8\Booster_CLOAK\BE\attack\src\1478p.spt
+9011225   .\Effect\item_8\Booster_CLOAK\BE\attack\src\land_smok_01.spt      ;바닥물효과_01
+
+
+
+;------------------------------------------------------------------
+;벨라토드래곤부스터_BE_CLOAK_use
+;------------------------------------------------------------------
+9011231   .\Effect\item_8\Booster_CLOAK\BE\use\src\52872\52872.r3e	          ;모이는빛
+9011232   .\Effect\item_8\Booster_CLOAK\BE\use\src\TBlow\TBlow.R3E
+9011233   .\Effect\item_8\Booster_CLOAK\BE\use\src\inquiry7.spt                   ;반짝
+9011234   .\Effect\item_8\Booster_CLOAK\BE\use\src\inquiry7_01\inquiry7_01.R3E
+
+
+
+;------------------------------------------------------------------
+;코라드래곤부스터_CO_CLOAK_attack
+;------------------------------------------------------------------
+9011241   .\Effect\item_8\Booster_CLOAK\CO\attack\src\bs.spt 	          ;세로불똥
+9011242   .\Effect\item_8\Booster_CLOAK\CO\attack\src\DUST_p.spt	  ;먼지
+9011243   .\Effect\item_8\Booster_CLOAK\CO\attack\src\spkl.spt            ;파티클
+9011244   .\Effect\item_8\Booster_CLOAK\CO\attack\src\1478p.spt
+9011245   .\Effect\item_8\Booster_CLOAK\CO\attack\src\land_smok_01.spt    ;바닥물효과_01
+
+
+
+;------------------------------------------------------------------
+;코라드래곤부스터_CO_CLOAK_use
+;------------------------------------------------------------------
+9011251   .\Effect\item_8\Booster_CLOAK\CO\use\src\52872\52872.r3e	          ;모이는빛
+9011252   .\Effect\item_8\Booster_CLOAK\CO\use\src\TBlow\TBlow.R3E
+9011253   .\Effect\item_8\Booster_CLOAK\CO\use\src\inquiry7.spt                   ;반짝
+9011254   .\Effect\item_8\Booster_CLOAK\CO\use\src\inquiry7_01\inquiry7_01.R3E
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

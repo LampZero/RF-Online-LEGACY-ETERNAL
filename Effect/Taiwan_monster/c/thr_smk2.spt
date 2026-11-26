@@ -1,0 +1,34 @@
+;°¡½ºÇü
+[Particle]
+
+
+entity_file .\effect\Taiwan_monster\c\thr_smk2\smk.r3e
+num	20
+pos box rand(-2,2) 0 rand(-55,-15)
+
+live_time 4
+time_speed 3
+gravity	0 2 -3
+	start_scale 0
+	start_time_range 0.5
+	start_power rand(-3,3) rand(-3,3) rand(-13,-4)
+	start_alpha 0
+	start_color 0 0 0
+	start_zrot rand(0,360)
+	
+alpha_type 1
+free
+
+time 1
+	color 50 50 50
+	scale 0.2
+	alpha 50
+
+time 2
+	
+	scale 0.4
+	alpha 150
+
+time 4
+	alpha 0
+	scale 0.55

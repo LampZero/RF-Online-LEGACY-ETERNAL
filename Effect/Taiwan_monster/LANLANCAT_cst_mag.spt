@@ -1,0 +1,25 @@
+[MagicTrack]
+;damage2데미지와불화염소스로 같이사용중
+
+create_type 2
+create_pos 0 0 0
+attach
+
+
+time 0
+entity_id 9011257              ;화염브레스시전
+y_angle 180
+pos xyz 0 0 0
+
+
+time 0
+entity_id 9011256             ;검은연기시전
+pos xyz 0 0 -5
+y_angle 180
+pos xyz 0 0 0
+
+
+time 0
+entity_id 9011255             ;화염
+y_angle 180
+pos xyz 0 0 0

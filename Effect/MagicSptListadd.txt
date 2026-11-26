@@ -1,0 +1,38 @@
+
+
+;=======================================================
+;드래곤세트(화이트)부스터
+;=======================================================
+;아크레시아망토(남자)
+0x54006054    \\item_8\Booster_CLOAK\AC\use\AC_CLOAK_use.spt                 ;use
+0x54006055    \\Force\Mcircle\none.spt                                       ;unuse
+0x54006053    \\item_8\Booster_CLOAK\AC\attack\AC_CLOAK_attack.spt           ;attack
+
+;벨라토레망토(남자)
+0x50006054    \\item_8\Booster_CLOAK\BE\use\BE_CLOAK_use.spt          ;use
+0x50006055    \\Force\Mcircle\none.spt                                ;unuse
+0x50006053    \\item_8\Booster_CLOAK\BE\attack\BE_CLOAK_attack.spt    ;attack
+
+;벨라토레망토(여자)
+0x51006054    \\item_8\Booster_CLOAK\BE\use\BE_CLOAK_use.spt          ;use
+0x51006055    \\Force\Mcircle\none.spt                                ;unuse
+0x51006053    \\item_8\Booster_CLOAK\BE\attack\BE_CLOAK_attack.spt    ;attack
+
+;코라망토(남자)
+0x52006054    \\item_8\Booster_CLOAK\CO\use\CO_CLOAK_use.spt          ;use
+0x52006055    \\Force\Mcircle\none.spt                                ;unuse
+0x52006053    \\item_8\Booster_CLOAK\CO\attack\CO_CLOAK_attack.spt    ;attack
+
+;코라망토(여자)
+0x53006054    \\item_8\Booster_CLOAK\CO\use\CO_CLOAK_use.spt          ;use
+0x53006055    \\Force\Mcircle\none.spt                                ;unuse
+0x53006053    \\item_8\Booster_CLOAK\CO\attack\CO_CLOAK_attack.spt    ;attack
+
+
+;=======================================================
+;드래곤 몬스터 공격
+;=======================================================
+
+;호라 인페르날 드래곤
+
+0x20ff8262	\\mob\attck\new_atk_no3\new_atk3_mag.spt	:땅바닥공격

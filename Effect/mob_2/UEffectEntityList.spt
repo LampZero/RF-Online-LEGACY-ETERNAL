@@ -1,0 +1,33 @@
+
+;DDS리스트스크립트
+;구분되어있는것은각각의폴더가존재합니다.
+
+[DDSFileList]
+1    .\Effect\mob_2\TarlicBsp\ItemOutlineAni.dds
+2    .\Effect\mob_2\TarlicBsp\TarlicGradeAni1.dds
+3    .\Effect\mob_2\TarlicBsp\TarlicGradeAni2.dds
+4    .\Effect\mob_2\TarlicBsp\TarlicGradeAni3.dds
+5    .\Effect\mob_2\TarlicBsp\TarlicGradeAni4.dds
+6    .\Effect\mob_2\TarlicBsp\TarlicGradeAni5.dds
+7    .\Effect\mob_2\TarlicBsp\ButtonAni.dds
+8    .\Effect\mob_2\TarlicBsp\SuccessAni.dds
+9    .\Effect\mob_2\TarlicBsp\DestroyAni.dds
+10    .\Effect\mob_2\TarlicBsp\ResetAni.dds
+11    .\Effect\mob_2\TarlicBsp\FailAni.dds
+12    .\Effect\mob_2\TarlicBsp\Destroy+ProtectAni.dds
+13    .\Effect\mob_2\TarlicBsp\Reset+ProtectAni.dds
+14    .\Effect\mob_2\TarlicBsp\UpgradeAni.dds
+15    .\Effect\mob_2\TarlicBsp\DownGradeAni.dds
+
+
+
+
+
+
+
+
+
+
+
+
+
