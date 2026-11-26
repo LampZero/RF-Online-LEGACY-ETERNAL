@@ -1,0 +1,66 @@
+<MobDummy>
+	<Parent><Name>dungeon03m07						<Pos>-2227 37 45
+					<MobCode>06D17	<Time>345600	<Respone>1	<probability>100
+			<Child><Name>dmm07_0				<Pos>-2219 17 80
+	<Parent><Name>dungeon03m05						<Pos>-1860 1052 -1792
+					<MobCode>16527	<Time>345600	<Respone>1	<probability>100
+			<Child><Name>dmm05_0				<Pos>-1864 1029 -1790
+	<Parent><Name>dungeon03m01						<Pos>202 879 -2861
+					<MobCode>04327	<Time>345600	<Respone>1	<probability>100
+			<Child><Name>dmm01_0				<Pos>169 859 -2865
+	<Parent><Name>dungeon03m08						<Pos>2572 631 244
+					<MobCode>0AD17	<Time>345600	<Respone>1	<probability>100
+			<Child><Name>dmm08_0				<Pos>2559 640 248
+	<Parent><Name>dungeon03m09						<Pos>2182 1052 -2182
+					<MobCode>09447	<Time>345600	<Respone>1	<probability>100
+			<Child><Name>dmm09_0				<Pos>2167 1032 -2180
+	<Parent><Name>dungeon03m06						<Pos>2147 1317 2192
+					<MobCode>0AF17	<Time>345600	<Respone>1	<probability>100
+			<Child><Name>dmm06_0				<Pos>2158 1297 2211
+	<Parent><Name>dungeon03m02						<Pos>9 890 2647
+					<MobCode>0B117	<Time>345600	<Respone>1	<probability>100
+			<Child><Name>dmm02_0				<Pos>3 883 2657
+	<Parent><Name>dungeon03m03						<Pos>-2013 1633 1890
+					<MobCode>06817	<Time>345600	<Respone>1	<probability>100
+			<Child><Name>dmm03_0				<Pos>-2012 1613 1895
+	<Parent><Name>dungeon03m04						<Pos>-372 394 657
+					<MobCode>0B217	<Time>345600	<Respone>1	<probability>100
+			<Child><Name>dmm04_0				<Pos>-388 374 628
+	<Parent><Name>dungeon03m10						<Pos>5059 2803 26
+					<MobCode>05837	<Time>604800	<Respone>1	<probability>100
+			<Child><Name>dmm10_0				<Pos>5046 2783 24
+</MobDummy>
+<UnKnown>
+	<Name>dungeon03m07						<Pos>-2227 37 45
+	<Name>dungeon03m05						<Pos>-1860 1052 -1792
+	<Name>dungeon03m01						<Pos>202 879 -2861
+	<Name>dungeon03m08						<Pos>2572 631 244
+	<Name>dungeon03m09						<Pos>2182 1052 -2182
+	<Name>dungeon03m06						<Pos>2147 1317 2192
+	<Name>dungeon03m02						<Pos>9 890 2647
+	<Name>dungeon03m03						<Pos>-2013 1633 1890
+	<Name>dungeon03m04						<Pos>-372 394 657
+	<Name>dungeon03m10						<Pos>5059 2803 26
+</UnKnown>
+<MAP이동 더미>
+	<Name>dpgoto_neutralbs1						<Pos>-4 329 1048
+	<Name>dpgoto_mountain_beast						<Pos>-1929 172 7
+	<Name>dpgoto_sette						<Pos>-371 914 -3522
+	<Name>dpgoto_elan						<Pos>3507 897 -383
+	<Name>dpgoto_medicallab						<Pos>2864 1089 -2008
+	<Name>dpgoto_exile_land						<Pos>3033 1374 1860
+	<Name>dpgoto_neutralcs2						<Pos>-2 942 3306
+	<Name>dpgoto_neutralas1						<Pos>-1816 1671 2814
+	<Name>dpgoto_platform01						<Pos>5417 2841 -5
+	<Name>dpfrom_mountain_beast						<Pos>-3044 51 1
+	<Name>dpfrom_cauldron01						<Pos>-1901 1077 -3078
+	<Name>dpfrom_sette						<Pos>375 912 -2085
+	<Name>dpfrom_elan						<Pos>2194 574 516
+	<Name>dpfrom_medicallab						<Pos>1778 1094 -3032
+	<Name>dpfrom_exile_land						<Pos>2288 1345 2981
+	<Name>dpfrom_neutralcs2						<Pos>300 943 2112
+	<Name>dpfrom_neutralas1						<Pos>-2863 1683 1760
+	<Name>dpfrom_neutralbs1						<Pos>-2 352 -1053
+	<Name>dpfrom_platform01						<Pos>4690 2851 3
+	<Name>dpgoto_hwasan						<Pos>-2711 1057 -2320
+</MAP이동 더미>

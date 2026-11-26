@@ -1,0 +1,447 @@
+*MATERIAL_NUM 440
+{
+cora_subtemp_02_0		0
+cora_subtemp_03_1		1
+  cora_temp_06_2		2
+  cora_temp_11_3		3
+  cora_trim_04_4		4
+ cora_block_01_5		5
+tani_cora_flicker_02_6		6
+tani_cora_flicker_01_7		7
+  cora_temp_19_8		8
+cora_build01_07_9		9
+ cora_post_01_10		10
+ cora_temp_06_11		11
+ cora_door_01_12		12
+ cora_wall_15_13		13
+ cora_temp_15_14		14
+ cora_temp_14_15		15
+cora_stairs_02_16		16
+ cora_wall_07_17		17
+ cora_temp_01_18		18
+ cora_temp_02_19		19
+cora_block_04_20		20
+ cora_post_03_21		21
+cora_build01_01_22		22
+ cora_trim_19_23		23
+ cora_tile_02_24		24
+ cora_temp_07_25		25
+ cora_temp_02_26		26
+ cora_trim_14_27		27
+ cora_trim_15_28		28
+cora_temp_17_1_29		29
+ cora_trim_14_30		30
+cora_temp_01_1_31		31
+ cora_trim_09_32		32
+tani_cora_trim_18_33		33
+ cora_trim_03_34		34
+ cora_trim_07_35		35
+ cora_trim_13_36		36
+ cora_temp_18_37		37
+ cora_gate_01_38		38
+ cora_pipe_01_39		39
+ cora_trim_02_40		40
+tani_cora_tile_110_41		41
+ cora_wall_01_42		42
+ cora_temp_08_43		43
+ cora_temp_10_44		44
+ cora_temp_09_45		45
+ cora_temp_12_46		46
+ cora_temp_15_47		47
+ cora_temp_16_48		48
+ cora_temp_09_49		49
+cora_block_03_50		50
+ cora_temp_04_51		51
+ cora_temp_06_52		52
+ cora_temp_06_53		53
+cora_subtemp_02_54		54
+cora_subtemp_03_55		55
+ cora_temp_06_56		56
+ cora_temp_13_57		57
+ cora_temp_03_58		58
+ cora_flag_01_59		59
+cora_effect_01_60		60
+cora_terrain_101_61		61
+cora_terrain_901_62		62
+cora_terrain_902_63		63
+cora_terrain_905_64		64
+cora_terrain_905_1_65		65
+cora_terrain_903_66		66
+cora_terrain_904_67		67
+cora_terrain_901_2_68		68
+cora_terrain_901_1_69		69
+cora_terrain_202_70		70
+cora_terrain_201_71		71
+cora_terrain_102_72		72
+cora_terrain_301_73		73
+cora_terrain_302_74		74
+cora_terrain_104_75		75
+cora_terrain_101_76		76
+cora_terrain_901_77		77
+cora_terrain_902_78		78
+cora_terrain_905_79		79
+cora_terrain_905_1_80		80
+cora_terrain_903_81		81
+cora_terrain_904_82		82
+cora_terrain_901_2_83		83
+cora_terrain_901_1_84		84
+cora_terrain_202_85		85
+cora_terrain_201_86		86
+cora_terrain_102_87		87
+cora_terrain_301_88		88
+cora_terrain_302_89		89
+cora_terrain_104_90		90
+cora_terrain_202_91		91
+cora_terrain_202_92		92
+cora_terrain_901_93		93
+cora_terrain_102_94		94
+cora_terrain_901_2_95		95
+cora_terrain_901_1_96		96
+cora_terrain_905_97		97
+cora_terrain_905_1_98		98
+cora_terrain_902_99		99
+cora_terrain_903_100		100
+cora_terrain_904_101		101
+cora_terrain_101_102		102
+cora_terrain_302_103		103
+cora_terrain_202_104		104
+cora_terrain_201_105		105
+cora_build08_106		106
+cora_temp_02_107		107
+cora_post_05_108		108
+cora_vine_041_109		109
+cora_vine_043_110		110
+cora_trim_14_111		111
+cora_wall_17_112		112
+cora_terrain_901_113		113
+cora_terrain_905_114		114
+cora_terrain_904_115		115
+cora_terrain_903_116		116
+cora_terrain_902_117		117
+cora_terrain_901_2_118		118
+cora_terrain_901_1_119		119
+cora_terrain_905_1_120		120
+cora_terrain_201_121		121
+cora_trim_10_122		122
+cora_post_01_123		123
+cora_trim_08_124		124
+cora_trim_16_125		125
+cora_terrain_901_126		126
+cora_tile_101_127		127
+cora_tile_102_128		128
+cora_tile_103_129		129
+cora_tile_104_130		130
+cora_stairs_01_131		131
+cora_wall_07_132		132
+cora_terrain_102_133		133
+cora_terrain_901_1_134		134
+cora_terrain_901_2_135		135
+cora_block_01_136		136
+cora_temp_02_137		137
+cora_wall_10_138		138
+cora_build01_07_139		139
+tani_cora_trim_01_140		140
+cora_metal_03_141		141
+cora_metal_04_142		142
+cora_trim_09_143		143
+cora_block_02_144		144
+cora_build01_01_145		145
+cora_temp_02_146		146
+cora_trim_02_147		147
+cora_color01_148		148
+cora_pipe_01_149		149
+cora_trim_01_150		150
+cora_temp_04_151		151
+cora_build01_03_152		152
+cora_wall_07_153		153
+cora_trim_05_154		154
+cora_stairs_01_155		155
+cora_build01_05_156		156
+cora_trim_03_157		157
+cora_temp_05_158		158
+cora_wall_11_159		159
+cora_wall_04_160		160
+tani_cora_roof_02t_161		161
+cora_roof_02B_162		162
+cora_build02_163		163
+tani_cora_gate_04_164		164
+cora_trim_09_165		165
+    ck_019_1_166		166
+cora_build01_05_167		167
+      ck_071_168		168
+    cora_s03_169		169
+  cora_stone_170		170
+tani_cora_stone_03_171		171
+tani_cora_stone_02_172		172
+tani_cora_stone_01_173		173
+tani_cora_stone_04_174		174
+cora_build04_175		175
+cora_trim_12_176		176
+cora_trim_13_177		177
+cora_roof_02t_178		178
+cora_roof_02B_179		179
+cora_trim_01_180		180
+cora_build01_07_181		181
+tani_cora_block_01_182		182
+cora_wall_04_183		183
+cora_trim_09_184		184
+cora_wall_08_185		185
+cora_door_01_186		186
+cora_wall_14_187		187
+cora_gate_04_188		188
+cora_fountain_01_189		189
+cora_trim_10_190		190
+      ck_070_191		191
+cora_temp_15_192		192
+    ck_005_3_193		193
+cora_terrain_901_194		194
+    cora_s04_195		195
+   bd_po_003_196		196
+cora_build01_07_197		197
+cora_roof_02t_198		198
+cora_trim_01_199		199
+cora_roof_02B_200		200
+cora_metal_01_201		201
+tani_cora_build01_04_202		202
+cora_build01_08_203		203
+cora_build01_03_204		204
+cora_wall_06_205		205
+cora_wall_04_206		206
+cora_door_01_207		207
+cora_metal_02_208		208
+cora_build01_06_209		209
+cora_build01_01_210		210
+cora_wall_02_211		211
+cora_build01_02_212		212
+co_field_ob_524_213		213
+cora_pipe_01_214		214
+cora_trim_02_215		215
+cora_trim_03_216		216
+cora_trim_05_217		217
+cora_fountain_03_218		218
+cora_post_01_219		219
+cora_trim_14_220		220
+cora_temp_05_221		221
+cora_wall_10_222		222
+cora_metal_02_223		223
+cora_temp_15_224		224
+cora_tile_103_225		225
+cora_tile_102_226		226
+cora_trim_10_227		227
+cora_trim_08_228		228
+cora_post_01_229		229
+cora_block_01_230		230
+cora_roof_02t_231		231
+cora_trim_12_1_232		232
+cora_build01_07_233		233
+cora_wall_09_234		234
+cora_wall_08_235		235
+cora_trim_14_236		236
+cora_wall_10_237		237
+cora_block_02_1_238		238
+cora_temp_10_239		239
+cora_metal_02_240		240
+cora_block_01_a_241		241
+cora_temp_02_242		242
+cora_wall_07_243		243
+cora_stairs_01_244		244
+cora_trim_06_245		245
+cora_trim_09_246		246
+cora_metal_05_247		247
+cora_metal_04_248		248
+cora_block_02_249		249
+cora_tile_101_250		250
+tani_cora_fall_04_251		251
+tani_cora_effect_01_252		252
+cora_trim_14_253		253
+tani_cora_temp_17_2_254		254
+tani_cora_temp_17_1_255		255
+tani_cora_effect_01_256		256
+tani_cora_trim_18_257		257
+tani_cora_fall_03_258		258
+tani_cora_water_06_259		259
+tani_cora_fall_01_260		260
+tani_cora_water_02_261		261
+cora_vine_041_262		262
+cora_vine_042_263		263
+cora_vine_043_264		264
+cora_vine_041_265		265
+cora_vine_043_266		266
+cora_vine_042_267		267
+cora_terrain_201_268		268
+cora_terrain_101_269		269
+cora_trim_10_270		270
+cora_post_01_271		271
+cora_trim_08_272		272
+cora_trim_06_273		273
+cora_stairs_02_274		274
+cora_temp_15_275		275
+    ck_019_1_276		276
+    ck_005_3_277		277
+      ck_071_278		278
+    cora_s04_279		279
+cora_terrain_202_280		280
+cora_terrain_201_281		281
+cora_pipe_01_282		282
+cora_block_01_283		283
+cora_roof_02t_284		284
+cora_block_02_285		285
+cora_roof_03T_286		286
+cora_gate_02_287		287
+cora_roof_02B_288		288
+cora_trim_01_289		289
+cora_trim_07_290		290
+cora_trim_11_291		291
+cora_metal_01_292		292
+cora_trim_09_293		293
+cora_block_01_294		294
+  bd_po_005e_295		295
+   bd_po_008_296		296
+   bd_po_004_297		297
+  bd_po_001e_298		298
+   bd_po_003_299		299
+cora_block_02_300		300
+cora_metal_05_301		301
+cora_trim_09_302		302
+cora_metal_04_303		303
+cora_tile_103_304		304
+cora_tile_102_305		305
+cora_build01_05_306		306
+cora_wall_10_307		307
+cora_temp_02_308		308
+cora_roof_02t_309		309
+cora_build01_07_310		310
+cora_roof_02t_311		311
+cora_trim_01_312		312
+cora_temp_02_313		313
+cora_wall_01_314		314
+cora_trim_14_315		315
+cora_trim_03_316		316
+cora_post_01_317		317
+cora_effect_02_318		318
+cora_trim_03_319		319
+cora_build01_01_320		320
+cora_build01_07_321		321
+cora_post_03_322		322
+cora_build14_323		323
+cora_post_07_324		324
+cora_build15_2_325		325
+cora_build11_326		326
+cora_temp_05_327		327
+cora_post_02_328		328
+cora_trim_05_329		329
+cora_trim_02_330		330
+cora_build15_1_331		331
+cora_trim_12_1_332		332
+cora_wall_08_333		333
+cora_temp_17_3_334		334
+cora_temp_04_335		335
+cora_temp_10_336		336
+cora_trim_25_337		337
+cora_trim_25_1_338		338
+cora_wall_04_339		339
+cora_temp_17_1_340		340
+cora_temp_01_341		341
+cora_build01_05_342		342
+cora_tile_04_343		343
+cora_build11_1_344		344
+cora_build16_345		345
+cora_trim_07_346		346
+cora_gate_01_347		347
+cora_pipe_01_348		348
+cora_metal_01_349		349
+cora_trim_09_350		350
+cora_trim_11_351		351
+cora_subtemp_02_352		352
+cora_temp_06_353		353
+cora_trim_04_354		354
+cora_post_03_355		355
+cora_subtemp_02_356		356
+cora_subtemp_03_357		357
+cora_subtemp_05_358		358
+cora_subtemp_04_359		359
+cora_block_02_360		360
+cora_block_03_361		361
+cora_temp_15_362		362
+cora_block_04_363		363
+cora_wall_10_364		364
+cora_BigTree_02_365		365
+cora_BigTree_01_366		366
+co_field_ob_524_367		367
+    big_tree_368		368
+cora_BigTree_02_369		369
+cora_wall_07_370		370
+cora_build01_07_371		371
+cora_trim_02_372		372
+cora_trim_03_373		373
+cora_fountain_02_374		374
+tani_cora_pipe_01000_375		375
+cora_build01_03_376		376
+cora_metal_02_377		377
+cora_tile_102_378		378
+cora_post_01_379		379
+cora_block_02_380		380
+cora_fountain_03_381		381
+cora_tile_102_382		382
+cora_fountain_01_383		383
+cora_block_02_384		384
+cora_trim_08_385		385
+cora_fountain_03_386		386
+tani_cora_trim_01_387		387
+cora_trim_11_388		388
+tani_hp_b_02_389		389
+cora_metal_01_390		390
+cora_build01_07_391		391
+cora_trim_10_392		392
+tani_hp_r_01_393		393
+tani_hp_r_02_394		394
+tani_hp_y_02_395		395
+tani_hp_b_01_396		396
+tani_hp_y_01_397		397
+cora_gate_03_398		398
+cora_metal_01_399		399
+cora_roof_03B_400		400
+cora_fountain_01_401		401
+cora_roof_03T_402		402
+cora_trim_01_403		403
+cora_pipe_01_404		404
+cora_trim_07_405		405
+cora_gate_02_406		406
+cora_gate_01_407		407
+cora_trim_08_408		408
+cora_build01_05_409		409
+cora_trim_06_410		410
+cora_stairs_01_411		411
+cora_wall_07_412		412
+cora_wall_12_413		413
+cora_wall_11_414		414
+tani_cora_fall_02_415		415
+cora_wall_09_416		416
+cora_tile_103_417		417
+cora_block_05_418		418
+cora_metal_03_419		419
+cora_post_01_420		420
+cora_wall_07_421		421
+cora_temp_15_422		422
+co_field_ob_524_423		423
+ leaves02-02_424		424
+co_field_ob_503_425		425
+ leaves02-02_426		426
+cora_tree_02_427		427
+cora_tree_02_428		428
+ 2%-%Default_429		429
+ 4%-%Default_430		430
+ 3%-%Default_431		431
+    ls_02_01_432		432
+    ls_02_02_433		433
+    ls_02_01_434		434
+    ls_02_02_435		435
+    ls_02_01_436		436
+    ls_02_02_437		437
+    ls_02_01_438		438
+    ls_02_02_439		439
+}
+*FOG_START     30000.0
+*FOG_END        50000.0
+*FOG_COLOR   107 154 196
+*FOG_RANGE       TRUE
