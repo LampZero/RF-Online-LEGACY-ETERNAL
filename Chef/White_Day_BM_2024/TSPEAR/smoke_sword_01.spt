@@ -1,0 +1,44 @@
+[Particle]
+
+entity_file .\Chef\White_Day_BM_2024\TSPEAR\smoke_sword_01\aura.R3E
+num 60
+;pos box rand(-6,6) 0 0
+pos box rand(-15,1) 0 0
+
+
+live_time 1.5
+time_speed 1.2
+gravity	-5 0 0
+
+	start_color 255 255 255
+	start_scale rand(1,1.5)
+	start_alpha 100
+	start_zrot rand(0,360)
+	start_power rand(-1,1) rand(-1,1) rand(-1,1)
+
+
+;z_front	-0.1
+alpha_type 3
+
+
+
+time 0.5
+	color 0 0 255
+	zrot rand(-30,30)
+	alpha 200
+	scale rand(2,2.5)
+
+time 1
+	color 200 0 255
+              power rand(-1,1) rand(-1,1) rand(-1,1)
+	zrot rand(-30,30)
+	alpha 50
+	scale rand(3,4)
+
+
+time 1.5
+	color 200 0 255
+              power rand(-1,1) rand(-1,1) rand(-1,1)
+	scale 5
+	zrot rand(-30,30)
+	alpha 0

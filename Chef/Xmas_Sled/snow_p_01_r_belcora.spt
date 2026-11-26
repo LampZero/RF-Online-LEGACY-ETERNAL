@@ -1,0 +1,48 @@
+;Æ÷¼ÇºþÂ¦ÀÌ
+
+[Particle]
+entity_file .\Chef\Xmas_Sled\snow_p_01_r\snow_p_01_r.R3E
+num	40
+pos box rand(-20,20) rand(-22,22) rand(-30,20)
+
+live_time 5
+time_speed 4
+gravity	0 -0.5 0
+
+
+	;start_power 0 rand(-5,1) 0
+	start_time_range 0.1
+	start_color 255 255 255
+	start_scale rand(1.0,1.1)
+	start_alpha 0
+	start_zrot rand(0,360)
+
+alpha_type 3
+z_front -0.1
+free
+always_live
+
+
+time 0.1
+	scale 0.9
+	alpha 255
+
+time 2
+	scale 1
+	alpha 255
+
+time 3
+	scale 0.9
+	alpha 255
+
+time 4
+	scale 1
+	alpha 255
+	
+time 5
+	scale 0.9
+	alpha 0
+	
+
+
+	

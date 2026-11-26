@@ -1,0 +1,30 @@
+[Particle]
+entity_file .\Chef\75LV_Animus\HECATE_Lv75\par04\re.r3e
+num	5
+pos box 0 0 0
+live_time 4
+time_speed 5
+gravity	0 0 0
+start_scale 0.6
+start_power 0 0 0
+start_alpha 100
+start_color  255 100 50
+alpha_type 3
+z_front -0.1
+start_zrot rand(-20,20)
+
+time 2
+alpha 100
+color 150 150 150 
+scale 1.2
+
+time 3
+alpha 50
+color 255 100 100
+scale 2.4
+
+time 4
+alpha 0
+color 
+scale 4.8
+

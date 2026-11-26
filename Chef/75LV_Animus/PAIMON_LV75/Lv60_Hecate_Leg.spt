@@ -1,0 +1,41 @@
+[Particle]
+entity_file .\Chef\75LV_Animus\PAIMON_LV75\Lv60_Hecate_Leg\60HecaLeg.R3E
+
+num 24
+pos box 0 rand(0,8) 0
+
+live_time 2.5
+time_speed 1
+gravity 0 4 0
+
+	start_color 150 255 255
+	start_scale rand(4,6)
+	start_zrot rand(0,180)
+	start_alpha 0
+	
+alpha_type 3
+z_front -0.3
+
+time 0.5
+	alpha 255
+	scale rand(3,5)
+	color 0 255 255
+	zrot rand(-30,30)
+
+time 1.5
+	alpha 255
+	scale rand(2,4)
+	color 0 230 255
+	zrot rand(-30,30)
+
+time 2
+	alpha 200
+	scale rand(1,3)
+	color 0 200 255
+	zrot rand(-30,30)
+
+time 2.5
+	alpha 30
+	scale rand(0,2)
+	color 0 160 255
+	zrot rand(-30,30)

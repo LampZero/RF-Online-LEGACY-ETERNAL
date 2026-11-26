@@ -1,0 +1,34 @@
+일렉-기본(활용)
+
+[Particle]
+
+entity_file .\Chef\White_Day_BM_2024\RKNIFE\683p\aura.R3E
+num 5
+pos box 0 0 0
+
+live_time 1.5
+time_speed 1
+gravity 0 0 0
+	
+	start_scale 1
+	;start_color 100 100 255
+	start_color 60 80 255
+	start_alpha 0
+	start_zrot rand(0,360)
+	alpha_type 3
+
+;z_front -0.1
+
+
+
+time 0.5
+	alpha 70
+	;color 100 100 255
+	color 160 80 255
+
+
+time 1.5
+	;color 100 150 255
+	color 60 80 255
+	alpha 0
+

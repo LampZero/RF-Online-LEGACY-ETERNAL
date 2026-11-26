@@ -1,0 +1,39 @@
+
+[Particle]
+entity_file .\Chef\White_Day_2022\TAXE\heart_P\heart_P.R3E
+
+
+num 15
+pos box  0 0 0
+
+live_time 1
+time_speed 1
+gravity 0 0 0
+
+	start_scale rand(0.4,0.6)
+	start_alpha 0
+	start_power rand(-5,5) rand(-5,5) rand(-5,5)
+	;start_time_range 1
+	;start_color 255 255 255
+	start_zrot rand(0,360)
+
+alpha_type 3
+z_front -0.5
+always_live
+free
+
+
+time 0.6
+	alpha 120
+	scale rand(0.55,0.65)
+	zrot rand(0,360)
+
+time 0.7
+	alpha 80
+	scale rand(0.6,0.75)
+	zrot rand(0,360)	
+
+time 1
+	alpha 0
+	scale rand(0.1,0.4)
+	zrot rand(0,360)	

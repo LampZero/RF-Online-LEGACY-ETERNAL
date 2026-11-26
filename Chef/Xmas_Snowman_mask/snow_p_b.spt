@@ -1,0 +1,48 @@
+;Æ÷¼ÇºþÂ¦ÀÌ
+
+[Particle]
+entity_file .\Chef\Xmas_Snowman_mask\snow_p_b\snow_p_b.R3E
+num	10
+pos box rand(-3,3) rand(-3,3) rand(-3,3)
+
+live_time 5
+time_speed 1.5
+gravity	0 0 -0.5
+
+
+	;start_power 0 rand(-5,1) 0
+	start_time_range 0.1
+	start_color 255 255 255
+	;start_scale rand(0.4,0.5)
+	start_alpha 0
+	start_zrot rand(0,360)
+
+alpha_type 3
+z_front -0.1
+;free
+always_live
+
+
+time 0.1
+	scale 0.3
+	alpha 255
+
+time 2
+	scale 0.4
+	alpha 255
+
+time 3
+	scale 0.3
+	alpha 255
+
+time 4
+	scale 0.4
+	alpha 255
+	
+time 5
+	scale 0.3
+	alpha 0
+	
+
+
+	

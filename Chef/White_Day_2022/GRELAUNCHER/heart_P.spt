@@ -1,0 +1,45 @@
+[Particle]
+entity_file .\Chef\White_Day_2022\GRELAUNCHER\heart_P\heart_P.R3E
+
+num 20
+;pos box 0 0 0
+pos box rand(-6,6) rand(-0.1,0.1) rand(-0.1,0.1)
+
+live_time 2
+time_speed 1
+gravity 0 2.5 0
+
+	start_scale rand(0.2,0.4)
+	start_alpha 255
+	start_power rand(-2,2) rand(-2,2) rand(-2,2)
+	start_time_range 0.2
+	start_color 255	255 255
+	;start_zrot rand(0,180)
+	;start_yrot rand(0,180)
+	
+alpha_type 3
+always_live  
+;no_billboard
+;free
+
+time 0.6
+	alpha 50
+	color 255 0 0
+	scale rand(0.15,1.2)
+	;zrot rand(0,180)
+	;yrot rand(0,180)
+
+time 1.3
+	alpha 150
+	color 208 91 205
+	scale rand(0.45,1.4)
+	;zrot rand(0,180)
+	;yrot rand(0,180)
+
+time 2
+	alpha 50
+	color 0 255 255
+	scale rand(0.9,1.7)
+	;zrot rand(0,180)
+	;yrot rand(0,180)
+

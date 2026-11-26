@@ -1,0 +1,36 @@
+[Particle]
+entity_file  .\Chef\Ice_Monster\catapult_firearm\re.R3E
+num	8
+
+pos box rand(-6,6) rand(-6,6) rand(-6,6)
+;pos box rand(-2,2) rand(-2,2) rand(-10,0)
+live_time 1
+time_speed 1.5
+gravity	0 0 -1
+	;start_color 255 60 0
+	start_color 55 160 160
+	start_scale rand(2,2.5)
+	start_alpha 0
+	;start_yrot rand(-30,30)
+	start_zrot rand(0,360)
+
+always_live
+;no_billboard
+;z_front -0.03
+alpha_type 3
+use_combine_scale
+;free
+
+time 0.5
+	scale rand(2.5,3)
+	zrot rand(-20,20)
+	;color 200 120 0
+	color 120 120 120
+	alpha 200
+
+time 1
+	scale rand(3,4)
+	alpha 0
+	;color 180 150 120
+	color 100 150 150
+	zrot rand(-10,10)

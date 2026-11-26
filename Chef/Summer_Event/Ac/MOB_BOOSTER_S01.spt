@@ -1,0 +1,36 @@
+[Particle]
+entity_file .\Chef\Summer_Event\Ac\MOB_BOOSTER_GLOW\aura.R3E
+num 9
+pos box 0 0 0
+
+live_time 3
+time_speed 5
+gravity	0 0 0
+
+
+	start_power rand(-0.1,0.1) rand(-0.1,0.1) 0
+	start_color 255 255 255
+	start_scale 2
+	start_alpha 50
+
+
+;z_front	-0.05
+alpha_type 3
+always_live
+
+
+time 0.5
+	alpha 200
+	scale 3
+
+time 1
+	alpha rand(60,80)
+	scale rand(4,5)
+
+time 2
+	alpha rand(10,25)
+	scale rand(6,7)
+
+time 3
+	alpha 0
+	scale rand(8,9)
