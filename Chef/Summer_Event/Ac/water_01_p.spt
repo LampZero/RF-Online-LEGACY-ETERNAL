@@ -1,0 +1,42 @@
+;직진형태
+
+[Particle]
+
+entity_file .\Chef\Summer_Event\Ac\water_01_p\aura.R3E
+num 40
+pos box rand(-10,10) rand(-25,25) 0
+
+live_time 1.5
+time_speed 1.5
+gravity	0 0 2
+	;creat_time_epsilon 3
+	start_color 255 100 0
+	start_scale 15
+	start_alpha 0
+	start_power rand(-1,1) rand(-1,1) rand(-1,1)
+	start_zrot rand(-360,360)
+
+free
+z_front	-0.05
+alpha_type 3
+
+
+time 0.5
+	;color 255 150 150
+	color 255 255 255
+	zrot rand(0,20)
+	alpha 150
+
+time 1
+	;color 255 150 50
+	color 255 255 255
+	zrot rand(0,20)
+	scale 18
+	alpha 50
+
+time 1.5
+	;color 255 255 255
+	color 255 255 255
+	scale 20
+	zrot rand(0,30)
+	alpha 0
