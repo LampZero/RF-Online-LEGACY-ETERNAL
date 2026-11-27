@@ -22462,7 +22462,7 @@ a87651d1f6a83bc9	R3Engine.ini	507
 75b27ce1a3eee5fe	RF.exe	580824
 2295085b35de42a7	RFHK.ini	1094
 30edf8ca76e3831f	RFOnline.url	55
-4a2739ca8ac4c109	RF_Online.bin	8430808
+7bb9009eb2ed2a1f	RF_Online.bin	8430808
 8aaf4ba2f4c3fb80	RF_WebURL.dat	2862
 19aa3bf49302a747	Redist/RF.ico	45008
 9510b766f1af6bd7	Redist/dxwebsetup.exe	288088
